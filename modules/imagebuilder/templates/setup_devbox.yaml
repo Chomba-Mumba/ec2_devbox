@@ -1,0 +1,22 @@
+name: install-neo-vim
+description: Install neovim into ec2devbox and copy the config from my github private repo
+schemaVersion: 1
+phases:
+  - name: build
+    steps:
+      - name: InstallNeoVim
+        action: ExecuteBash
+        inputs:
+          commands:
+            - |
+              echo "installing neovim config now..."
+              sudo apt-get install neovim
+      
+      - name: InstallPackages
+        action: ExecuteBash
+        inputs:
+          commands:
+            - |
+              echo "installing required packages"
+              sudo apt-get install git
+
